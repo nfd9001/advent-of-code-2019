@@ -9,6 +9,5 @@ main = do
         return (w!!0,[w!!1])
     let map = fromListWith (++) pairs
     let tree = unfoldTree (\x -> (x, findWithDefault [] x map)) "COM"
-    let tree' = (const 1) <$> tree
     let lv = levels tree
     print $ sum $ (\x -> fst x * length (snd x)) <$> (zip [0..] lv)
